@@ -1,0 +1,79 @@
+:root
+{
+  //--theme-custom-color: 19, 123, 222;
+  --theme-custom-color: 190, 100, 222;
+  --lighten-theme-custom-color: rgba(var(--theme-custom-color), 0.057);
+  --darker-lighten-theme-custom-color: rgba(var(--theme-custom-color), 0.45);
+}
+// Body
+
+// Typography
+$SF_TextRegular: 'SF Pro Text';
+$SF_ProDisplay: 'SF Pro Display';
+
+
+// $JameelNoori: 'jameel_noori_nastaleeqregular';
+$JameelNoori: 'Jameel Noori Nastaleeq';
+$Scheherazade: 'Scheherazade';
+
+// FOR DEV
+$cdnUrlPrefix : 'https://bsecure-dev.s3-eu-west-1.amazonaws.com/dev/';
+// FOR STAGE
+// $cdnUrlPrefix : 'https://bsecure-dev.s3-eu-west-1.amazonaws.com/dev/react_app/assets/';
+// FOR PRODUCTION
+// $cdnUrlPrefix : 'https://bsecure-dev.s3-eu-west-1.amazonaws.com/dev/react_app/assets/';
+
+// $cdnUrlPostfix : '?auto=compress,format&fit=max';
+$cdnUrlPostfix : '';
+
+$navyblue: #143656;
+$blue: #137BDE;
+$lightblue: #3BA3FF;
+$bluelighttint: #EBF5FF;
+$yellow: #FFD843;
+$green: #37D2B2;
+$pink: #FE8083;
+$cyan: #2ECCD3;
+$purple: #886BD9;
+$light-grey: #B9C0C4;
+$mid-grey: #91989C;
+$dark-grey: #5F666A;
+$mid-blue: #414E59;
+$dark-blue: #2D3A45;
+$black-blue: #192631;
+$trans-color: #092c4c;
+$white: #ffffff;
+$grayBg: #E6E6E6;
+$grayCol: #B3B3B3;
+$darkGrayCol :#212E38;
+$red: #de132a;
+
+
+$bg-color: #424242;
+$muted-color: mix(white, $bg-color, 70%);
+$trans-time: 300ms;
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+	box-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin Opacity($value) {
+	$IEValue: $value*100;
+	opacity: $value;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+	filter: alpha(opacity=$IEValue);
+}
+
+@function cdnUrl($url) {
+	@return $cdnUrlPrefix+$url+$cdnUrlPostfix;
+}
+
+@function rgb($args...) {
+	@return r#{g}#{b}(#{$args})
+  }

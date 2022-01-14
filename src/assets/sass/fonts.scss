@@ -1,0 +1,320 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/english/sfprotext-regular.eot");
+  /* IE9*/
+  src: url("../fonts/english/sfprotext-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../fonts/english/sfprotext-regular.woff2") format("woff2"),
+    /* chrome firefox */
+    url("../fonts/english/sfprotext-regular.woff") format("woff"),
+    /* chrome firefox */
+    url("../fonts/english/sfprotext-regular.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("../fonts/english/sfprotext-regular.svg#SF Pro Text") format("svg");
+  /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/english/sfprodisplay-bold.eot");
+  /* IE9*/
+  src: url("../fonts/english/sfprodisplay-bold.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../fonts/english/sfprodisplay-bold.woff2") format("woff2"),
+    /* chrome firefox */
+    url("../fonts/english/sfprodisplay-bold.woff") format("woff"),
+    /* chrome firefox */
+    url("../fonts/english/sfprodisplay-bold.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("../fonts/english/sfprodisplay-bold.svg#SF Pro Display") format("svg");
+  /* iOS 4.1- */
+}
+
+@font-face {
+  font-family: "Jameel Noori Nastaleeq";
+  src: url("../fonts/urdu/JameelNooriNastaleeq.eot");
+  /* IE9*/
+  src: url("../fonts/urdu/JameelNooriNastaleeq.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../fonts/urdu/JameelNooriNastaleeq.woff2") format("woff2"),
+    /* chrome firefox */
+    url("../fonts/urdu/JameelNooriNastaleeq.woff") format("woff"),
+    /* chrome firefox */
+    url("../fonts/urdu/JameelNooriNastaleeq.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("../fonts/urdu/JameelNooriNastaleeq.svg#JameelNooriNastaleeq") format("svg");
+  /* iOS 4.1- */
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Scheherazade";
+  src: url("../fonts/urdu/Scheherazade-Bold.eot");
+  /* IE9*/
+  src: url("../fonts/urdu/Scheherazade-Bold.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */
+    url("../fonts/urdu/Scheherazade-Bold.woff2") format("woff2"),
+    /* chrome firefox */
+    url("../fonts/urdu/Scheherazade-Bold.woff") format("woff"),
+    /* chrome firefox */
+    url("../fonts/urdu/Scheherazade-Bold.ttf") format("truetype"),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("../fonts/urdu/Scheherazade-Bold.svg#Scheherazade-Bold") format("svg");
+  /* iOS 4.1- */
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'new-icon';
+  src:  url('../fonts/english/new-icon.eot?4tfuwo');
+  src:  url('../fonts/english/new-icon.eot?4tfuwo#iefix') format('embedded-opentype'),
+    url('../fonts/english/new-icon.ttf?4tfuwo') format('truetype'),
+    url('../fonts/english/new-icon.woff?4tfuwo') format('woff'),
+    url('../fonts/english/new-icon.svg?4tfuwo#new-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="new-icons-"], [class*=" new-icons-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'new-icon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.new-icons-icon-expired:before {
+  content: "\e610";
+}
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icons/icomoon.eot?2konf7');
+  src:  url('../fonts/icons/icomoon.eot?2konf7#iefix') format('embedded-opentype'),
+    url('../fonts/icons/icomoon.ttf?2konf7') format('truetype'),
+    url('../fonts/icons/icomoon.woff?2konf7') format('woff'),
+    url('../fonts/icons/icomoon.svg?2konf7#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-navigate-profile:before {
+  content: "\e926";
+  color: #91989c;
+}
+.icomoon-refresh:before {
+  content: "\e921";
+}
+.icomoon-info:before {
+  content: "\e922";
+}
+.icomoon-info-outline:before {
+  content: "\e923";
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-style: normal;
+  transform: translateX(25%) rotate(16deg);
+}
+.icomoon-check:before {
+  content: "\e924";
+}
+.icomoon-navigate-top:before {
+  content: "\e601";
+}
+.icomoon-navigate-next:before {
+  content: "\e602";
+}
+.icomoon-navigate-before:before {
+  content: "\e603";
+}
+.icomoon-close:before {
+  content: "\e925";
+  color: #FFF !important;
+}
+.icomoon-guard:before {
+  content: "\e710";
+}
+.icomoon-tooltip-icon .path1:before {
+  content: "\e906";
+}
+.icomoon-tooltip-icon .path2:before {
+  content: "\e90c";
+  margin-left: -0.9169921875em;
+  color: rgb(19, 123, 222);
+}
+.icomoon-icon-trash:before {
+  content: "\e920";
+}
+.icomoon-breadcrumb-cart:before {
+  content: "\e613";
+}
+.icomoon-breadcrumb-phone-filled1:before {
+  content: "\e90d";
+}
+.icomoon-review-payment:before {
+  content: "\e90e";
+}
+.icomoon-breadcrumb-payment-colored:before {
+  content: "\e90f";
+}
+.icomoon-gps-filled:before {
+  content: "\e910";
+}
+.icomoon-review-address:before {
+  content: "\e911";
+}
+.icomoon-review-shipping:before {
+  content: "\e912";
+}
+.icomoon-spotlight-Marker .path1:before {
+  content: "\e913";
+  color: rgb(0, 0, 0);
+  opacity: 0.12;
+}
+.icomoon-spotlight-Marker .path2:before {
+  content: "\e914";
+  margin-left: -0.63671875em;
+  color: rgb(234, 53, 43);
+}
+.icomoon-spotlight-Marker .path3:before {
+  content: "\e915";
+  margin-left: -0.63671875em;
+  color: rgb(0, 0, 0);
+}
+.icomoon-spotlight-Marker .path4:before {
+  content: "\e916";
+  margin-left: -0.63671875em;
+  color: rgb(0, 0, 0);
+  opacity: 0.4;
+}
+.icomoon-search:before {
+  content: "\e917";
+}
+.icomoon-delivery:before {
+  content: "\e918";
+}
+.icomoon-Vector2:before {
+  content: "\e919";
+}
+.icomoon-discount:before {
+  content: "\e91a";
+  color: #fff !important;
+}
+.icomoon-home:before {
+  content: "\e91b";
+}
+.icomoon-home-filled:before {
+  content: "\e91c";
+}
+.icomoon-location-blocked:before {
+  content: "\e654";
+  color: #fe8083;
+}
+.icomoon-arrow-back1:before {
+  content: "\e91d";
+  color: #697386;
+}
+.icomoon-gps-icon:before {
+  content: "\e91e";
+}
+.icomoon-gps-pin .path1:before {
+  content: "\e611";
+  color: rgb(19, 123, 222);
+}
+.icomoon-gps-pin .path2:before {
+  content: "\e612";
+  margin-left: -1em;
+}
+.icomoon-navigate-cart:before {
+  content: "\e91f";
+  color: #91989c;
+}
+.icomoon-powered-icon:before {
+  content: "\e956";
+  color: #b9c0c4;
+}
+.icomoon-breadcrumb-phone:before {
+  content: "\e900";
+}
+.icomoon-breadcrumb-shipping:before {
+  content: "\e901";
+}
+.icomoon-breadcrumb-otp:before {
+  content: "\e902";
+}
+.icomoon-map1:before {
+  content: "\e903";
+}
+.icomoon-see-more:before {
+  content: "\e904";
+}
+.icomoon-breadcrumb-otp-filled:before {
+  content: "\e905";
+}
+.icomoon-breadcrumb-otp-colored:before {
+  content: "\e907";
+}
+.icomoon-breadcrumb-shipping-colored:before {
+  content: "\e908";
+}
+.icomoon-breadcrumb-address:before {
+  content: "\e909";
+}
+.icomoon-breadcrumb-phone-filled:before {
+  content: "\e90a";
+}
+.icomoon-breadcrumb-payment-filled:before {
+  content: "\e90b";
+}
+.icomoon-navigate-bottom:before {
+  content: "\f107";
+}
+.icomoon-icon-minimize:before {
+  content: "\e927";
+  color: #91989c;
+}
+
+.icomoon-map-link:before {
+  content: "\e919";
+}
+
+.icomoon-icon-calling:before {
+  content: "\e928";
+  color: #fff;
+}
+
+.icomoon-scan:before {
+  content: "\e906";
+  color: #137bde;
+}

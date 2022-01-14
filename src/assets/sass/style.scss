@@ -1,0 +1,55 @@
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+html,
+body {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  font-family: $SF_TextRegular !important;
+  color: $black-blue;
+  background: #fff;
+  overflow-y: auto !important;
+  // overflow-y: auto;
+  // -ms-overflow-style: none;
+  // /* IE and Edge */
+  // scrollbar-width: none;
+  // /* Firefox */
+
+  // &::-webkit-scrollbar {
+  //     display: none;
+  // }
+}
+// html,
+// body {
+//     overflow-y: auto;
+//     -ms-overflow-style: none;
+//     /* IE and Edge */
+//     scrollbar-width: none;
+//     /* Firefox */
+
+//     &::-webkit-scrollbar {
+//         display: none;
+//     }
+// }
+
+button:focus {
+  outline: none !important;
+  outline: 0px auto -webkit-focus-ring-color !important;
+}
+
+.disable_click {
+  pointer-events: none;
+}
+
+.alert {
+  overflow-wrap: break-word;
+}

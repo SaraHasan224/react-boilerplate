@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/vhosts/order.bsecure.pk
+hooks:
+  BeforeInstall:
+    - location: scripts/deregister_from_elb.sh
+      timeout: 500
+    - location: scripts/before.sh
+      runas: root
+  AfterInstall:
+    - location: scripts/install.sh
+  ApplicationStart:
+    - location: scripts/servicesRestart.sh
+      timeout: 120
+      runas: root
+    - location: scripts/register_with_elb.sh
+      timeout: 300

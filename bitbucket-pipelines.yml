@@ -1,0 +1,43 @@
+pipelines:
+  branches:
+    develop:
+      - step:
+          caches:
+            - node
+          deployment: bSecure-checkout-app-dev
+          script:
+            - git filter-branch -- --all; git push https://heroku:$HEROKU_DEV_API_KEY@git.heroku.com/$HEROKU_DEV_APP_NAME.git develop:master -f
+            - echo "deployment finished"
+    vault-develop:
+      - step:
+          caches:
+            - node
+          deployment: bSecure-checkout-vault-dev
+          script:
+            - git filter-branch -- --all; git push https://heroku:$HEROKU_DEV_API_KEY@git.heroku.com/$HEROKU_DEV_APP_NAME.git vault-develop:master -f
+            - echo "deployment finished"
+    staging:
+      - step:
+          deployment: bSecure-checkout-app-stage
+          script:
+            - git filter-branch -- --all; git push https://heroku:$HEROKU_STAGE_API_KEY@git.heroku.com/$HEROKU_STAGE_APP_NAME.git staging:master -f
+            - echo "deployment finished"
+    vault-staging:
+      - step:
+          deployment: bSecure-checkout-vault-stage
+          script:
+            - git filter-branch -- --all; git push https://heroku:$HEROKU_STAGE_API_KEY@git.heroku.com/$HEROKU_STAGE_APP_NAME.git vault-staging:master -f
+            - echo "deployment finished"
+    master:
+      - step:
+          deployment: bSecure-checkout-app-prod
+          image: muhammadbilal82/nexdegree:ubuntu-bsecure
+          script:
+            - aws configure set default.s3.signature_version s3v4
+            - pip install boto3==1.3.0 # required for codedeploy_deploy.py
+            - zip -r /tmp/artifact.zip * # package up the application for deployment
+            - export DEPLOY_ENVIRONMENT="PROD" # TODO have code deploy script use different targets
+            - export AWS_ACCESS_KEY_ID="$PROD_AWS_ACCESS_KEY_ID"
+            - export AWS_SECRET_ACCESS_KEY="$PROD_AWS_SECRET_ACCESS_KEY"
+            - export AWS_DEFAULT_REGION="$PROD_AWS_DEFAULT_REGION"
+            - python codedeploy_deploy.py # run the deployment script
