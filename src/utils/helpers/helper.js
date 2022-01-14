@@ -1,4 +1,4 @@
-import { CARD_SELECTOR_OPTION_LIST, CONSTANTS, LOCAL_STORAGE_SERVICE } from "../../utils";
+import { CONSTANTS, LOCAL_STORAGE_SERVICE } from "../../utils";
 import { store } from "../../store";
 import { isIOS, isAndroid, isMobile } from "react-device-detect";
 
@@ -424,28 +424,6 @@ function stringToBoolean(string) {
   }
 }
 
-function selectCreditCardType(payment) {
-  let selected_card_type = "";
-  CARD_SELECTOR_OPTION_LIST &&
-    CARD_SELECTOR_OPTION_LIST.map((card) => {
-      const card_type = card.id;
-      let cc_type;
-      if (HELPER.isNotEmpty(payment.cc_type) && payment.cc_type !== undefined) {
-        cc_type = payment.cc_type;
-      } else {
-        cc_type = "unknown";
-      }
-      const trimmed_card_type = card_type.trim();
-      const trimmed_cc_type = cc_type.trim();
-      if (trimmed_card_type.toLowerCase() === trimmed_cc_type.toLowerCase()) {
-        selected_card_type = card;
-      }
-      return card;
-    });
-
-  return selected_card_type;
-}
-
 function intPadding(number) {
   return (number < 10 ? "0" : "") + number;
 }
@@ -476,7 +454,7 @@ function getCCTypeValidation(twoDigits) {
 
 function getLngDirection(lngLocale) {
   let direction = "ltr";
-  if (lngLocale === CONSTANTS.IS_URDU) {
+  if (lngLocale === CONSTANTS.SUPPORTED_LANG.URDU) {
     direction = "rtl";
   }
   return direction;
@@ -622,7 +600,7 @@ function formatPrice(currency, charges, roundOff = true) {
     HELPER.isNotEmpty(charges) && charges !== "" ? parseFloat(charges) : 0;
   let roundOffCharge = roundOff ? charge.toFixed(2) : charge;
   const storageLocale = LOCAL_STORAGE_SERVICE._getFromSessionStorage("locale");
-  if (storageLocale === CONSTANTS.IS_ENGLISH) {
+  if (storageLocale === CONSTANTS.SUPPORTED_LANG.ENGLISH) {
     return {
       charges: thousands_separators(roundOffCharge),
       currency,
@@ -643,7 +621,7 @@ function showPrice(currency, charges, roundOff = true) {
   if (HELPER.isNotEmpty(charge)) {
     let roundOffCharge = roundOff ? charge.toFixed(2) : charge;
     const storageLocale = LOCAL_STORAGE_SERVICE._getFromLocalStorage("locale");
-    if (storageLocale === CONSTANTS.IS_ENGLISH) {
+    if (storageLocale === CONSTANTS.SUPPORTED_LANG.ENGLISH) {
       return currency + " " + thousands_separators(roundOffCharge);
     } else {
       return thousands_separators(roundOffCharge) + " " + currency;
@@ -653,7 +631,7 @@ function showPrice(currency, charges, roundOff = true) {
 
 function parseQuantity(text, quantity) {
   const storageLocale = LOCAL_STORAGE_SERVICE._getFromLocalStorage("locale");
-  if (storageLocale === CONSTANTS.IS_ENGLISH) {
+  if (storageLocale === CONSTANTS.SUPPORTED_LANG.ENGLISH) {
     return text + ": " + quantity;
   } else {
     return quantity + " <span>" + text + "</span>";
@@ -953,7 +931,6 @@ const HELPER = {
   formatPrice,
   parseQuantity,
   validationMessageFormat,
-  selectCreditCardType,
   stringToBoolean,
   capitalizeFirstLetter,
   capitalize,

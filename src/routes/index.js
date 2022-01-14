@@ -9,7 +9,7 @@ const ROUTES = [
     path: ROUTE_CONSTANTS["BASE"],
     exact: true,
     component: Home,
-    protected: false,
+    protected: true,
     default: false,
     view: "Base",
     allowBack: false
@@ -18,7 +18,7 @@ const ROUTES = [
     path: ROUTE_CONSTANTS["ANY"],
     exact: false,
     component: Error,
-    protected: false,
+    protected: true,
     default: false,
     view: "*",
     allowBack: false

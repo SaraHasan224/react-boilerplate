@@ -13,15 +13,12 @@ function AlertComponent() {
   // let dispatch = useDispatch();
   let { addToast, removeAllToasts } = useToaster();
 
-  const { form_type } = useSelector(state => state.cart.payment_method);
   const { message, hide, type, clearAll, autoDismiss, group } = useSelector(state => state.alert);
-
-  const NIFT = form_type === CONSTANTS.PAYMENT_METHOD.FORM_TYPE.CREDIT_CARD.NIFT;
 
   useEffect(() => {
     // returned function will be called on component unmount
     return () => {
-      if (HELPER.isNotEmpty(message) && hide && !NIFT) {
+      if (HELPER.isNotEmpty(message) && hide) {
         /*
           SCROLL SCREEN TO TOP ON EACH RENDER
         */
@@ -66,14 +63,9 @@ function AlertComponent() {
         SCROLL SCREEN TO TOP ON EACH RENDER
       */
       scroll.scrollToTop();
-      if(!NIFT){
-        timeoutTime = setTimeout(() => {
-          // dispatch(alertActions.clear())
-        }, 8000);
-      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [alert, NIFT]);
+  }, [alert]);
 
   return useCustomAlerts();
 }

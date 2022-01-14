@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+
 import { LOCAL_STORAGE_SERVICE } from "../utils";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (

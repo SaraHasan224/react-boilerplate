@@ -1,17 +1,58 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// @flow
 
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { Detector } from "react-detect-offline";
+import { store, persistor } from "./store";
+import App from "./App";
+import {
+  Provider as P,
+  ErrorBoundary } from '@rollbar/react';
+// import { unregister } from "./ServiceWorker";
+import {
+  GTM_HELPER,
+} from "./utils";
+import {
+  internetConnectionHandler,
+} from "./hooks";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const rootElement = document.getElementById("root");
+
+GTM_HELPER._initializeGA();
+
+// same configuration you would create for the Rollbar.js SDK
+const rollbarConfig = {
+  accessToken: process.env.REACT_APP_ROLLBAR_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+  payload: {
+      environment: process.env.REACT_APP_ENVIRONMENT
+  }
+};
+
+if (rootElement) {
+  ReactDOM.render(
+    <P config={rollbarConfig}>
+      <Provider store={store}>
+        <ErrorBoundary>
+          <PersistGate loading={null} persistor={persistor}>
+            {/* {internetConnectionHandler(window.navigator?.onLine ?? true)} */}
+            {/* <App /> */}
+              <Detector
+                render={({ online }) => {
+                  internetConnectionHandler(online)
+                  return <App />;
+                }}
+              />
+          </PersistGate>
+        </ErrorBoundary>
+       </Provider>
+    </P>,
+    rootElement
+  );
+} else {
+  throw new Error("Could not find root element to mount to!");
+}

@@ -1,17 +1,17 @@
+import Home from "./Home";
+import Error from "./Errors";
 import Alert from "./Alert";
 import { DefaultRoute } from "./DefaultRoute";
-import { PrivateRoute } from "./PrivateRoute";
+// import { PrivateRoute } from "./PrivateRoute";
 import PageLoader from "./PageLoader";
 import ErrorBoundary from "./ErrorBoundary";
-import Error from "./Errors";
-import Home from "./Home";
 
 export {
+  Home,
   DefaultRoute,
-  PrivateRoute,
+  // PrivateRoute,
   Alert,
   PageLoader,
   Error,
   ErrorBoundary,
-  Home
 };

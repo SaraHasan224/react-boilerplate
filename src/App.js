@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastProvider } from 'react-toast-notifications';
 import { IntlProvider, IntlActions } from "react-redux-multilingual";
 import { StylesProvider, ThemeProvider, jssPreset } from "@mui/styles";
-import { createMuiTheme } from "@mui/material/styles";
+import { createTheme  } from "@mui/material/styles";
 import { create } from "jss";
 import TagManager from "react-gtm-module";
 import rtl from "jss-rtl";
 
 import {
   DefaultRoute,
-  PrivateRoute,
+  // PrivateRoute,
   PageLoader,
   ErrorBoundary
 } from "./components";
@@ -29,8 +29,8 @@ import "./assets/sass/app.scss";
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-const ltrTheme = createMuiTheme({ direction: "ltr" });
-const rtlTheme = createMuiTheme({ direction: "rtl" });
+const ltrTheme = createTheme({ direction: "ltr" });
+const rtlTheme = createTheme({ direction: "rtl" });
 let tagManagerArgs = {
   gtmId: process.env.REACT_APP_GTM_ID,
   dataLayerName: 'bSecureCheckout'
@@ -52,7 +52,7 @@ function App() {
   let dispatch = useDispatch();
 
   const { locale } = useSelector(state => state.Intl);
-  const { gtm_id } = useSelector(state => state.configuration.config);
+  // const { gtm_id } = useSelector(state => state.configuration.config);
 
   const defaultLocale = HELPER.getDefaultLocale(locale);
   LOCAL_STORAGE_SERVICE._saveToLocalStorage("locale", defaultLocale);
@@ -63,10 +63,10 @@ function App() {
     // GTM_HELPER._initializeGA();
     TagManager.initialize(tagManagerArgs);
     dispatch(IntlActions.setLocale(langLocale));
-    if (HELPER.isNotEmpty(gtm_id) && tagManagerArgs.gtmId !== gtm_id) {
-      tagManagerArgs.gtmId = gtm_id;
-      TagManager.initialize(tagManagerArgs);
-    }
+    // if (HELPER.isNotEmpty(gtm_id) && tagManagerArgs.gtmId !== gtm_id) {
+    //   tagManagerArgs.gtmId = gtm_id;
+    //   TagManager.initialize(tagManagerArgs);
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,10 +83,10 @@ function App() {
       }
     }
 
-    if (HELPER.isNotEmpty(gtm_id) && tagManagerArgs.gtmId !== gtm_id) {
-      tagManagerArgs.gtmId = gtm_id;
-      TagManager.initialize(tagManagerArgs);
-    }
+    // if (HELPER.isNotEmpty(gtm_id) && tagManagerArgs.gtmId !== gtm_id) {
+    //   tagManagerArgs.gtmId = gtm_id;
+    //   TagManager.initialize(tagManagerArgs);
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
@@ -96,7 +96,7 @@ function App() {
       <ToastProvider>
         <StylesProvider jss={jss}>
           <ThemeProvider
-            theme={locale === CONSTANTS.IS_URDU ? rtlTheme : ltrTheme}
+            theme={locale === CONSTANTS.SUPPORTED_LANG.URDU ? rtlTheme : ltrTheme}
           >
             <IntlProvider
               translations={LANG_TRANS}
@@ -108,8 +108,8 @@ function App() {
                   <Switch>
                     {ROUTES.map((route, index) => {
                       return  route.protected ? (
-                        <PrivateRoute key={index} {...route} />
-                      ) : route.default ? (
+                      //   <PrivateRoute key={index} {...route} />
+                      // ) : route.default ? (
                         <DefaultRoute key={index} {...route} />
                       ) : (
                         <Route key={index} {...route} />
